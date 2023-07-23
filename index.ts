@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.use('/books', bookRouter)
 
-
+// [To-Do: ]  // ---> Done <---
 bookRouter.get('/', (req, res) => {
   const titles = data.map(book => book.title); // Only Titles
   let myBook = JSON.stringify(data); // All Data
@@ -23,7 +23,7 @@ bookRouter.get('/', (req, res) => {
 
 
 
-
+// [To-Do: ]  // ---> Done <---
 app.get('/books/:id', (req, res) => {
 
   const bookId = parseInt(req.params.id);
@@ -32,7 +32,7 @@ app.get('/books/:id', (req, res) => {
   res.send(book);
 });
 
-  // [To-Do: add book 1. title, puplication year, author with validation to data]
+// [To-Do: add book 1. title, puplication year, author with validation to data]  // ---> Done <---
 app.post('/books/post', (req: Library.Request, res: Library.Response) => { 
 
   const { title, author, publicationYear } = req.body;
@@ -54,7 +54,7 @@ app.post('/books/post', (req: Library.Request, res: Library.Response) => {
 });
 
 
-  // [To-Do: update the data inside the sample.json file nad body request.];
+// [To-Do: update the data inside the sample.json file nad body request.] // ---> Done <---
 app.put('/books/update/:id', (req, res) => {
   const bookId = req.params.id;
   const updatedBook = req.body;
@@ -63,9 +63,9 @@ app.put('/books/update/:id', (req, res) => {
    res.status(400).send('Invalid input! Please provide title, author, and publicationYear.');
   }
 
-  const bookToUpdate= data.findIndex((book) => book.id ===  parseInt(bookId)); // understand this Line ???????????
+  const bookToUpdate= data.findIndex((book) => book.id ===  parseInt(bookId));
 
-  if (bookToUpdate === -1) { // understand this Line ???????????
+  if (bookToUpdate === -1) {
    res.status(404).send("Error!");
   }
 
@@ -73,15 +73,10 @@ app.put('/books/update/:id', (req, res) => {
   data[bookToUpdate].author = updatedBook.author;
   data[bookToUpdate].publicationYear = updatedBook.publicationYear;
 
-  // Modify the database. [To-DO ??? Or Not?????]
-
-  // How can I test this Request ????
-
   res.json(data[bookToUpdate]);
-
-
 });
 
+// [To-Do: ]  // ---> Done <---
 app.delete('/books/delete/:id', (req, res) => {
   const bookId = parseInt(req.params.id);
 
@@ -91,7 +86,7 @@ app.delete('/books/delete/:id', (req, res) => {
 
   console.log('Book index:', bookIndex);
 
-  if (bookIndex === -1) { // Understand this code.
+  if (bookIndex === -1) {
     console.log('Book not found!');
     return res.status(404).send('There is no such book!');
   }
@@ -104,7 +99,7 @@ app.delete('/books/delete/:id', (req, res) => {
 });
 
 
-//[To-Do] Returns all the books
+//[To-Do] Returns all the books // ---> Done <---
 app.get('/books/title', (req, res) => {
   const bookTitle = req.query.title as string;
 
@@ -122,19 +117,14 @@ app.get('/books/title', (req, res) => {
   res.send(book);
 });
 
-
-app.get('/books/pup/:publicationYear', (req, res) => { // Get the book from the bublish year.
-  // res.send("[To-Do: Spicific book from a spicific name or publication year.]");
+  //[To-Do: Spicific book from a spicific name or publication year.] // ---> Done <---
+app.get('/books/pup/:publicationYear', (req, res) => {
 
   const bookPup = parseInt(req.params.publicationYear);
-  // const bookId = JSON.stringify(data)
   const book = data.find((book) => book.publicationYear === bookPup)
 
   res.send(book);
-
 });
-
-// To Do -------------------------------------------------------------------------------------------
 
 app.use((req, res) => {
   res.status(404).send("You requested something I don't have :(");
@@ -143,8 +133,3 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`App is running and Listening on http://localhost:${PORT}`);
 });
-
-
-// [To-Do: check all the routes]
-// [To-Do: check all the routes in a new short cut file of only books routes.]
-// [To-Do: Difference betqeen params and query params]
