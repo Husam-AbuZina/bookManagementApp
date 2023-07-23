@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.use('/books', bookRouter)
 
-// [To-Do: ]  // ---> Done <---
+// [To-Do: GET route to fetch all books from the JSON file and return them as a JSON response.]  // ---> Done <---
 bookRouter.get('/', (req, res) => {
   const titles = data.map(book => book.title); // Only Titles
   let myBook = JSON.stringify(data); // All Data
@@ -23,7 +23,7 @@ bookRouter.get('/', (req, res) => {
 
 
 
-// [To-Do: ]  // ---> Done <---
+// [To-Do: GET route that accepts a book ID as a path parameter and returns the corresponding book details from the JSON file.]  // ---> Done <---
 app.get('/books/:id', (req, res) => {
 
   const bookId = parseInt(req.params.id);
@@ -32,7 +32,7 @@ app.get('/books/:id', (req, res) => {
   res.send(book);
 });
 
-// [To-Do: add book 1. title, puplication year, author with validation to data]  // ---> Done <---
+// [To-Do:  POST route that accepts book details in the request body and adds the book to the JSON file. The route should validate the input data and handle any error.]  // ---> Done <---
 app.post('/books/post', (req: Library.Request, res: Library.Response) => { 
 
   const { title, author, publicationYear } = req.body;
@@ -54,7 +54,7 @@ app.post('/books/post', (req: Library.Request, res: Library.Response) => {
 });
 
 
-// [To-Do: update the data inside the sample.json file nad body request.] // ---> Done <---
+// [To-Do: PUT route that accepts a book ID as a path parameter and updated book details in the request body. The route should update the corresponding book in the JSON file.] // ---> Done <---
 app.put('/books/update/:id', (req, res) => {
   const bookId = req.params.id;
   const updatedBook = req.body;
@@ -76,7 +76,7 @@ app.put('/books/update/:id', (req, res) => {
   res.json(data[bookToUpdate]);
 });
 
-// [To-Do: ]  // ---> Done <---
+// [To-Do: DELETE route that accepts a book ID as a path parameter and deletes the corresponding book from the JSON file.]  // ---> Done <---
 app.delete('/books/delete/:id', (req, res) => {
   const bookId = parseInt(req.params.id);
 
@@ -99,7 +99,7 @@ app.delete('/books/delete/:id', (req, res) => {
 });
 
 
-//[To-Do] Returns all the books // ---> Done <---
+//[To-Do: GET route that accepts a book name as a query parameter and returns a list of books matching the provided name from the JSON file.] // ---> Done <---
 app.get('/books/title', (req, res) => {
   const bookTitle = req.query.title as string;
 
@@ -117,7 +117,8 @@ app.get('/books/title', (req, res) => {
   res.send(book);
 });
 
-  //[To-Do: Spicific book from a spicific name or publication year.] // ---> Done <---
+  //[To-Do: GET route that accepts a publishing year as a query parameter and returns a list of books published in the provided year from the JSON file.]
+  // ---> Done <---
 app.get('/books/pup/:publicationYear', (req, res) => {
 
   const bookPup = parseInt(req.params.publicationYear);
