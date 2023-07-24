@@ -1,5 +1,5 @@
 import express from 'express';
-import data from './data/Sample_data.js'; // import wasn't ".js", it tooke me 2 hours to realize :D
+import data from './data/Sample_data.js'; // import wasn't ".js", it took me 2 hours to realize :D :)
 import Library from './types/library.js';
 import bookRouter from './routers/book.js';
 
@@ -8,7 +8,7 @@ const PORT = 3000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Server is Running!');
+  res.send('Server is Running!'); // http://localhost:3000
 });
 
 app.use('/books', bookRouter)
@@ -18,13 +18,13 @@ bookRouter.get('/', (req, res) => {
   const titles = data.map(book => book.title); // Only Titles
   let myBook = JSON.stringify(data); // All Data
 
-  res.send(titles);
+  res.send(myBook);
 });
 
 
 
 // [To-Do: GET route that accepts a book ID as a path parameter and returns the corresponding book details from the JSON file.]  // ---> Done <---
-bookRouter.get('/:id', (req, res) => {
+bookRouter.get('/:id', (req, res) => {// http://localhost:3000/12
 
   const bookId = parseInt(req.params.id);
   const book = data.find((book) => book.id === bookId)
@@ -119,16 +119,16 @@ bookRouter.get('/title', (req, res) => {
 
   //[To-Do: GET route that accepts a publishing year as a query parameter and returns a list of books published in the provided year from the JSON file.]
   // ---> Done <---
-bookRouter.get('/pup/:publicationYear', (req, res) => {
-
-  const bookPup = parseInt(req.params.publicationYear);
-  const book = data.find((book) => book.publicationYear === bookPup)
-
-  res.send(book);
-});
+  bookRouter.get('/pup/:publicationYear', (req, res) => {
+    const bookPup = parseInt(req.params.publicationYear);
+    const booksWithSamePup = data.filter((book) => book.publicationYear === bookPup);
+  
+    res.send(booksWithSamePup);
+  });
+  
 
 app.use((req, res) => {
-  res.status(404).send("You requested something I don't have :(");
+  res.status(404).send("We Don't Have this Right now");
 });
 
 app.listen(PORT, () => {

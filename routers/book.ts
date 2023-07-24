@@ -13,11 +13,10 @@ router.get('/book', (req, res) => {
 
     res.send(`[To-Do: Spicific book from a ${id} the list of books.]`);
   });
-  
-  
+ 
   router.post('/', (req, res) => {
     res.send("[To-Do: add book 1. title, puplication year, author]  ++ with validation to data.");
-  });
+});
   
   router.put('/book/update/:id', (req, res) => {
 
