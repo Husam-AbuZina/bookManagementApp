@@ -43,3 +43,36 @@ reverse(): Reverses the elements in the array in place.
 isArray(value): Checks if the given value is an array.
 
 Remember that these are just some of the most commonly used methods on the Array.prototype. There are more methods available as well, so it's always a good idea to refer to the official JavaScript documentation for a comprehensive list and detailed explanations.
+
+## HTTP response status codes 
+
+##### indicate the outcome of a HTTP request made by a client to a web server. Here is a list of common HTTP response status codes along with their meanings:
+
+1xx - Informational Responses:
+
+100 Continue: The server has received the request headers and the client should proceed to send the request body.
+101 Switching Protocols: The server agrees to switch protocols and is acknowledging the client's request to do so.
+2xx - Successful Responses:
+
+200 OK: The request has succeeded, and the server has returned a response.
+201 Created: The request has been fulfilled, and a new resource has been created as a result.
+204 No Content: The server successfully processed the request, but there's no content to send in the response.
+3xx - Redirection Responses:
+
+300 Multiple Choices: The requested resource has multiple representations; the user or the user agent can choose among them.
+301 Moved Permanently: The requested resource has been assigned a new permanent URI and the client should update its references.
+304 Not Modified: The client's cached copy is up-to-date, and the requested resource hasn't been modified.
+4xx - Client Error Responses:
+
+400 Bad Request: The server cannot understand the request due to a client error.
+401 Unauthorized: Authentication is required and has failed or has not been provided.
+403 Forbidden: The client does not have the necessary permissions to access the requested resource.
+404 Not Found: The server has not found anything matching the requested URI.
+405 Method Not Allowed: The method specified in the request is not allowed for the resource identified by the URI.
+5xx - Server Error Responses:
+
+500 Internal Server Error: A generic error message, typically given when an unexpected condition was encountered on the server.
+501 Not Implemented: The server does not support the functionality required to fulfill the request.
+502 Bad Gateway: The server, while working as a gateway to get a response needed to handle the request, got an invalid response.
+503 Service Unavailable: The server is not ready to handle the request; the server is down or overloaded.
+Note that this list includes some of the most common status codes, but there are additional status codes with their own meanings as defined in the HTTP specification. It's important to refer to the official documentation for complete and accurate information on HTTP status codes.
