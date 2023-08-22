@@ -19,8 +19,10 @@ To Do that, we will need to make:
   
 # Create Template
 
+### Specify User Data:
 ![image](https://github.com/Husam-AbuZina/bookManagementApp/assets/109718076/f79b901d-46b7-4680-95fc-bf1ab841899d)
 
+### SpecifyKey-Pair and Security Group:
 ![image](https://github.com/Husam-AbuZina/bookManagementApp/assets/109718076/f660b900-b6d8-4bc8-ae9c-75f55b6d6840)
 
 ---
@@ -47,8 +49,10 @@ To Do that, we will need to make:
 
 ![image](https://github.com/Husam-AbuZina/bookManagementApp/assets/109718076/40ac7e76-8d50-4885-8e13-f0b91fcf93b9)
 
-
+### Specify the avaliability zones:
 ![image](https://github.com/Husam-AbuZina/bookManagementApp/assets/109718076/c9c32168-8f0c-4ef1-a1b4-12c201e00ba7)
+
+### Specify Security Group:
 ![image](https://github.com/Husam-AbuZina/bookManagementApp/assets/109718076/36b52a41-7ba5-4c49-a37f-a6c39187a91d)
 
 ---
