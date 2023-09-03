@@ -76,3 +76,7 @@ Remember that these are just some of the most commonly used methods on the Array
 502 Bad Gateway: The server, while working as a gateway to get a response needed to handle the request, got an invalid response.
 503 Service Unavailable: The server is not ready to handle the request; the server is down or overloaded.
 Note that this list includes some of the most common status codes, but there are additional status codes with their own meanings as defined in the HTTP specification. It's important to refer to the official documentation for complete and accurate information on HTTP status codes.
+
+# Notes:
+
+- Make More Advanced features about the project
